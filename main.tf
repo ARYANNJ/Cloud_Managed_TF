@@ -42,20 +42,20 @@ resource "aws_subnet" "TerPrivateSubnet" {
   }
   depends_on = [aws_vpc.TerraformVPC]
 }
-# resource "aws_internet_gateway" "TerIGW" {
-#   vpc_id = aws_vpc.TerraformVPC.id
-#   tags = {
-#     Name = "TerIGW"
-#   }
-# }
-# resource "aws_nat_gateway" "TerNatGateway" {
-#   allocation_id = "eipalloc-074e8fb33d740ea6a"
-#   subnet_id     = aws_subnet.TerPublicSubnet.id
-#   tags = {
-#     Name = "TerNagGateway"
-#   }
-#   depends_on = [aws_internet_gateway.TerIGW]
-# }
+resource "aws_internet_gateway" "TerIGW" {
+  vpc_id = aws_vpc.TerraformVPC.id
+  tags = {
+    Name = "TerIGW"
+  }
+}
+resource "aws_nat_gateway" "TerNatGateway" {
+  allocation_id = "eipalloc-074e8fb33d740ea6a"
+  subnet_id     = aws_subnet.TerPublicSubnet.id
+  tags = {
+    Name = "TerNagGateway"
+  }
+  depends_on = [aws_internet_gateway.TerIGW]
+}
 
 # resource "aws_route_table" "TerPubicRouteTable" {
 #   vpc_id = aws_vpc.TerraformVPC.id

@@ -10,13 +10,13 @@ output "TerPublicSubnet_id" {
 output "TerPrivateSubnet_id" {
   value = aws_subnet.TerPrivateSubnet.id
 }
-# output "TerIGW_id" {
-#   value = aws_internet_gateway.TerIGW.id
-# }
+output "TerIGW_id" {
+  value = aws_internet_gateway.TerIGW.id
+}
 
-# output "aws_nat_gateway" {
-#   value = aws_nat_gateway.TerNatGateway.id
-# }
+output "aws_nat_gateway" {
+  value = aws_nat_gateway.TerNatGateway.id
+}
 # output "TerPubicRouteTable" {
 #   value = aws_route_table.TerPubicRouteTable.id
 # }
